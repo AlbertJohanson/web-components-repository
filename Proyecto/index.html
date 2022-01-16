@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kike Zoom 2020</title>
+    <style>
+        *
+        {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body
+        {
+            background-color: black;
+        }
+
+        my-card
+        {
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <my-card title="Nike" img="./assets/img/nike-blue.png" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis felis sem, et euismod lorem lobortis et. Mauris ut purus et turpis ornare convallis. Duis ipsum urna, tristique fermentum urna eu, congue dictum elit. Fusce ultricies urna in nibh suscipit vestibulum. Etiam dignissim elementum eros, vel lacinia diam ornare quis. Phasellus porta. ">
+        <span slot="product__title">Nike Zoom 2020</span>
+        <span slot="product__category">Running</span>
+        <span slot="Collection">Collection</span>
+        <span slot="product__price">$2,999</span>
+    </my-card>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
