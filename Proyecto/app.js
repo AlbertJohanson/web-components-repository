@@ -69,6 +69,7 @@ class MyCard extends HTMLElement {
                     border-radius: 10px;
                     overflow: hidden;
                     height: 100%;
+                    position: relative;
                 }
 
                 section .header__container {
