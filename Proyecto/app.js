@@ -59,12 +59,16 @@ class MyCard extends HTMLElement {
                     --secondary-grey: #939394;
                     display: inline-block;
                     width: 100%;
+                    height: 100vh;
                     min-width: 375px;
                     max-width: 425px;
                 }
 
                 section {
                     background-color: #fff;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    height: 100%;
                 }
 
                 section .header__container {
@@ -144,7 +148,7 @@ class MyCard extends HTMLElement {
                     padding: 30px 0;
                     width: 100%;
                     justify-content: space-around;
-                    postion: absolute;
+                    position: absolute;
                     bottom: 0;
                 }
 
