@@ -1,17 +1,16 @@
 class MyCard extends HTMLElement {
-    constructor () {
-        super();
-        this.attachShadow({ mode: 'open' });
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
 
+    this.title = this.getAttribute("title");
+    this.img = this.getAttribute("img");
+    this.description = this.getAttribute("description");
+  }
 
-        this.title = this.getAttribute('title');
-        this.img = this.getAttribute('img');
-        this.description = this.getAttribute('description');
-    }
-
-    getTemplate () {
-        const templates = document.createElement('template');
-        templates.innerHTML = `
+  getTemplate() {
+    const templates = document.createElement("template");
+    templates.innerHTML = `
             <section>
                 <div class="header__container">
                     <h1>
@@ -36,22 +35,22 @@ class MyCard extends HTMLElement {
                            ${this.description}
                         </p>
                     </div>
-                </div>
-                <div class="content__container--footer">
+                    <div class="content__container--footer">
                     <span>
                         <slot name="product__price"></slot>
                     </span>
                     <button>Buy Now</button>
                 </div>
+                </div>
             </section>
             ${this.getStyles()}
         `;
 
-        return templates
-    }
+    return templates;
+  }
 
-    getStyles () {
-        return `
+  getStyles() {
+    return `
             <style>
                 :host {
                     --primary-background: #5a6cb2;
@@ -61,7 +60,7 @@ class MyCard extends HTMLElement {
                     width: 100%;
                     height: 100vh;
                     min-width: 375px;
-                    max-width: 425px;
+                    max-width: 900px;
                 }
 
                 section {
@@ -139,7 +138,6 @@ class MyCard extends HTMLElement {
                 section .content__container--description p
                 {
                     font-size: 1rem;
-                    margin; 
                     color: #000;
                 }
 
@@ -172,18 +170,57 @@ class MyCard extends HTMLElement {
                     color: var(--secondary-grey);
                 }
 
+                @media screen and (min-width: 768px) 
+                {
+                    _:host
+                    {
+                        max-width: 768px;
+                    }
+
+                    section 
+                    {
+                        margin-top: 300px;
+                        display: flex;
+                        max-height: 600px;
+                    }
+
+                    section .header__container img {
+                        width: 690px;
+                        position: absolute;
+                        top: 140px;
+                        margin-left: -170px;
+                        margin-right: 0;
+                        transform: rotate(-40deg);
+                        bottom: 100px;
+                    }
+
+                    section .content__container--description p
+                    {
+                        font-size: 1rem;
+                        margin-left: 50px;
+                        color: #000;
+                    }
+
+                    section .header__container {
+                        height: 100%;
+                    }
+
+                    section .content__container--footer {
+                        position: static;
+                    }
+                }
+
             </style>
-    `;    
-    }
+    `;
+  }
 
-    render () {
-        this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
-    }
+  render() {
+    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
+  }
 
-    connectedCallback(){
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 }
 
-
-customElements.define('my-card', MyCard);
+customElements.define("my-card", MyCard);
